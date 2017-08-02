@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "task": "main",
+    "status": true,
+    "createdAt": "Wed, 02 Aug 2017 03:20:50 GMT",
+    "completedAt": "Wed, 02 Aug 2017 03:21:05 GMT",
+    "tag": [
+      "tama",
+      "team"
+    ],
+    "id": 1
+  },
+  {
+    "task": "tidur",
+    "status": false,
+    "createdAt": "Wed, 02 Aug 2017 03:20:53 GMT",
+    "completedAt": false,
+    "tag": [],
+    "id": 2
+  },
+  {
+    "task": "nyanyi",
+    "status": false,
+    "createdAt": "Wed, 02 Aug 2017 03:25:17 GMT",
+    "completedAt": false,
+    "tag": [],
+    "id": 3
+  },
+  {
+    "id": 4,
+    "task": "test",
+    "status": false,
+    "createdAt": "Wed, 02 Aug 2017 05:47:42 GMT",
+    "completedAt": false,
+    "tag": []
+  }
+]
