@@ -14,8 +14,20 @@ class ToDo{
       case 'list':
         ViewToDo.list(data);
         break;
+      case 'list:created':
+        this.sortByDate(data, task);
+        break;
+      case 'list:completed':
+        //console.log(data.sort(function(a){return a.splice(a.isDone)}));
+        let complete = this.sortByComplete(data);
+        this.sortByDate(complete, task);
+        break;
+      case 'list:uncomplete':
+        let uncomplete = this.sortByUncomplete(data);
+        this.sortByDate(uncomplete, task);
+        break;
       case 'add':
-        data.push({task:task,isDone:false});
+        data.push({task:task,isDone:false,date:new Date(),tag:[]});
         let jsonAdd = this.json(data);
         ModelToDo.writeData(file, jsonAdd);
         ViewToDo.add(task);
@@ -58,8 +70,38 @@ class ToDo{
     }
   }
   static json(data){
-    let strData = JSON.stringify(data).split('[').join('[\n\t').split(',').join(',\n\t').split(']').join('\n]');
+    let strData = JSON.stringify(data).split('\t[').join('[\n\t').split(',').join(',\n\t').split('\r]').join('\n]');
     return strData;
+  }
+  static sortByDate(data, task){
+    if(task == 'asc'){
+      data.sort(function(a, b) {return new Date(a.date).getTime() - new Date(b.date).getTime();});
+      ViewToDo.list(data);
+    }
+    else if(task == 'desc'){
+      data.sort(function(a, b) {return new Date(b.date).getTime() - new Date(a.date).getTime();});
+      ViewToDo.list(data);
+    }else{
+      ViewToDo.info('Use command asc / desc');
+    }
+  }
+  static sortByComplete(data){
+    let complete = [];
+    for(let i=0; i<data.length; i++){
+        if(data[i].isDone){
+          complete.push(data[i]);
+        }
+    }
+    return complete;
+  }
+  static sortByUncomplete(data){
+    let uncomplete = [];
+    for(let i=0; i<data.length; i++){
+        if(!data[i].isDone){
+          uncomplete.push(data[i]);
+        }
+    }
+    return uncomplete;
   }
 }
 

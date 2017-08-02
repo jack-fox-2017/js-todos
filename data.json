@@ -1,10 +1,20 @@
-[
-	{"task":"Bikin aplikasi",
-	"isDone":true},
+[{"task":"Bikin Aplikasi",
+	"isDone":true,
+	"date":"2017-08-02T10:06:34.853Z",
+	"tag":[]},
 	{"task":"Main Node.js",
-	"isDone":false},
+	"isDone":true,
+	"date":"2017-08-02T10:06:57.086Z",
+	"tag":[]},
 	{"task":"Tambah fitur complete dan uncomplete",
-	"isDone":true},
-	{"task":"safhahfa",
-	"isDone":false}
-]
+	"isDone":true,
+	"date":"2017-08-02T10:07:12.488Z",
+	"tag":[]},
+	{"task":"Tambah fitur list:created dan list:completed as/desc",
+	"isDone":true,
+	"date":"2017-08-02T11:43:50.461Z",
+	"tag":[]},
+	{"task":"Tambah fitur tag dan filter command",
+	"isDone":false,
+	"date":"2017-08-02T11:44:06.880Z",
+	"tag":[]}]
