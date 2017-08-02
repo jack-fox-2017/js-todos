@@ -7,11 +7,7 @@ class ModelToDo{
     return obj;
   }
   static writeData(file, task){
-    let data = this.getData(file);
-    //console.log(typeof data);
-    data.push({"task":task});
-    //console.log(typeof data);
-    fs.writeFileSync(file, JSON.stringify(data));
+    fs.writeFileSync(file, task);
   }
 }
 

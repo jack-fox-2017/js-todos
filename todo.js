@@ -15,7 +15,10 @@ class ToDo{
         ViewToDo.list(data);
         break;
       case 'add':
-        ModelToDo.writeData(file, task);
+        data.push({task:task});
+        let strData = JSON.stringify(data).split('[').join('[\n\t').split(',').join(',\n\t').split(']').join('\n]');
+        //console.log(arrData)
+        ModelToDo.writeData(file, strData);
         ViewToDo.add(task);
         break;
       case 'task':
@@ -27,7 +30,7 @@ class ToDo{
         ViewToDo.find(dt);
         break;
       case 'delete':
-        
+
         break;
       case 'complete':
         break;
