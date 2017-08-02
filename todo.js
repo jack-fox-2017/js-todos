@@ -155,7 +155,7 @@ class ToDo {
 
 								case 'outstanding':
 								let outstandingList = command[1]
-								
+
 								switch(outstandingList) {
 									case undefined:
 									case 'asc':
@@ -181,7 +181,7 @@ class ToDo {
 						}
 
 						let filtered = data.filter(item => {return item.tags.indexOf(split[1]) >= 0})
-						console.log(ViewToDo.showList(filtered));
+						console.log(ViewToDo.showListOrdered(filtered, true));
 
 						break;
 

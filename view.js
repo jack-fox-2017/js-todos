@@ -22,8 +22,8 @@ class ViewToDo {
 		return `Command not found!\n${this.showHelp()}`
 	}
 
-	static showSingleList(data, order) {
-		return `${order || data.id}. [${data.completed ? 'x' : ' '}] ${data.content}`
+	static showSingleList(data, order, tags) {
+		return `${order || data.id}. [${data.completed ? 'x' : ' '}] ${data.content} ${tags ? '[' + data.tags.join(', ') + ']' : ''}`
 	}
 
 	static showList(data) {
@@ -32,9 +32,9 @@ class ViewToDo {
 		}).join('\n')
 	}
 
-	static showListOrdered(data) {
+	static showListOrdered(data, tags) {
 		return data.map((item, index) => {
-			return this.showSingleList(item, index + 1)
+			return this.showSingleList(item, index + 1, tags)
 		}).join('\n')
 	}
 

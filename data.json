@@ -5,25 +5,34 @@
     "content": "first todos",
     "completedDate": null,
     "createdDate": "2017-08-02T08:01:44.326Z",
-    "tags": [],
+    "tags": [
+      "interest",
+      "work"
+    ],
     "completeDate": "2017-08-02T08:02:13.129Z"
   },
   {
     "id": 2,
-    "completed": true,
+    "completed": false,
     "content": "shutdown computer",
     "completedDate": null,
     "createdDate": "2017-08-02T08:01:51.046Z",
-    "tags": [],
-    "completeDate": "2017-08-02T08:02:09.582Z"
+    "tags": [
+      "work"
+    ],
+    "completeDate": null
   },
   {
     "id": 3,
-    "completed": false,
+    "completed": true,
     "content": "go home",
     "completedDate": null,
     "createdDate": "2017-08-02T08:01:55.951Z",
-    "tags": []
+    "tags": [
+      "work",
+      "school"
+    ],
+    "completeDate": "2017-08-02T08:28:07.225Z"
   },
   {
     "id": 4,
@@ -31,18 +40,13 @@
     "content": "another todos",
     "completedDate": null,
     "createdDate": "2017-08-02T08:06:43.250Z",
-    "tags": []
+    "tags": [
+      "interest",
+      "school"
+    ]
   },
   {
     "id": 5,
-    "completed": false,
-    "content": "do homework",
-    "completedDate": null,
-    "createdDate": "2017-08-02T08:11:12.551Z",
-    "tags": []
-  },
-  {
-    "id": 6,
     "completed": false,
     "content": "sleep",
     "completedDate": null,
