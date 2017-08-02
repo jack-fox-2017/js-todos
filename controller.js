@@ -51,7 +51,8 @@ static Call(input){
         return View.list(Model.uncompletes())
       break;
       case "list:created":
-      // return View.list()
+      // return View.list(Model.list_created())
+      return View.list(Model.list_created())
       break;
       default:
         return'node.todo.js help';

@@ -58,7 +58,15 @@ class Model{
   }
 
   static list_created(){
-
+    var rawdataobj= JSON.parse(rawdata)
+    // return rawdataobj.created_date.sort(new Date())
+    var sort = rawdataobj.sort(function(a,b) {
+      return new Date(a.created_date) - new Date(b.created_date)
+      });
+    // var sort = rawdataobj.sort(function(a,b){
+    //  var dateA=new Date(a.created_date), dateB=new Date(b.created_date)
+    //  return dateB-dateA})
+    return sort
   }
 
 }
