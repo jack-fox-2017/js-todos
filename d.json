@@ -1,0 +1,30 @@
+[
+  { "id": 1,
+    "task": "Bikin Aplikasi",
+    "complete": true,
+    "completed_date": "",
+    "tag": ["work"],
+    "created_date": ""
+  },
+  { "id": 2,
+    "task": "Mainin Node.js",
+    "complete": false,
+    "completed_date": "",
+    "tag": ["work"],
+    "created_date": ""
+  },
+  { "id": 3,
+    "task": "Mainin Express js",
+    "complete": false,
+    "completed_date": "",
+    "tag": ["work"],
+    "created_date": ""
+  },
+  { "id": 4,
+    "task": "Mainin Data JSON",
+    "complete": true,
+    "completed_date": "",
+    "tag": ["work"],
+    "created_date": ""
+  }
+]
