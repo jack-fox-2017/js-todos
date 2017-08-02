@@ -17,6 +17,7 @@ static Call(input){
               $node todo.js complete <task_id>
               $node todo.js uncomplete <task_id>
               $node todo.js list:created
+              $node todo.js list:completed
         `
       break;
       case "list":
@@ -41,7 +42,7 @@ static Call(input){
         return '"Index brapa yang mau di delete?" contoh "delete 3"'
       }
       else{
-          return View.list(Model.deletes())
+        return View.list(Model.deletes())
       }
       break;
       case "complete": // <task_id>
@@ -52,7 +53,10 @@ static Call(input){
       break;
       case "list:created":
       // return View.list(Model.list_created())
-      return View.list(Model.list_createdASC())
+        return View.list(Model.list_createdASC())
+      break;
+      case "list:completed":
+        return View.list(Model.list_completed())
       break;
       default:
         return'node.todo.js help';

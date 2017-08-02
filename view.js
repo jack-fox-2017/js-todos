@@ -25,10 +25,6 @@ class View {
     return arr[id-1]
   }
 
-  static delete(){
-
-  }
-
 }
 
 

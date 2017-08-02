@@ -74,6 +74,21 @@ class Model{
       });
     return sort
   }
+
+  static list_completed(){
+    var rawdataobj= JSON.parse(rawdata)
+    let arr =[];
+    for (var i = 0; i < rawdataobj.length; i++) {
+      if (rawdataobj[i].complete==true) {
+      arr.push(rawdataobj[i])
+      }
+    }
+    var sort = arr.sort(function(a,b) {
+      return new Date(a.completed_date) - new Date(b.completed_date)
+      });
+    return sort
+  }
+
 }
 
 // console.log(Model.readData());
