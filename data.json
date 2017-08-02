@@ -1,1 +1,45 @@
-[]
+[
+  {
+    "id": 1,
+    "content": "Main node js",
+    "completed": "[ ]"
+  },
+  {
+    "id": 3,
+    "content": "Eat, Pray and Love",
+    "completed": "[x]"
+  },
+  {
+    "id": 4,
+    "content": "something to do",
+    "completed": "[x]"
+  },
+  {
+    "id": 5,
+    "content": "tambah date",
+    "create_date": "2017-08-02T14:10:02.024Z",
+    "completed_date": "2017-08-02T14:23:37.379Z",
+    "completed": "[x]"
+  },
+  {
+    "id": 6,
+    "content": "tambah date 2",
+    "create_date": "2017-08-02T14:10:46.485Z",
+    "completed_date": "2017-08-02T14:23:27.804Z",
+    "completed": "[x]"
+  },
+  {
+    "id": 7,
+    "content": "tambah date 3",
+    "create_date": "2017-08-02T14:13:45.361Z",
+    "completed_date": "2017-08-02T14:26:27.200Z",
+    "completed": "[x]"
+  },
+  {
+    "id": 7,
+    "content": "test completed",
+    "create_date": "2017-08-02T14:26:00.658Z",
+    "completed_date": "2017-08-02T14:26:27.219Z",
+    "completed": "[x]"
+  }
+]
