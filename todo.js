@@ -16,7 +16,7 @@ class Read{
     let masukan = input.slice(1)
     let joining = masukan.join(" ")
     let oldData = Model.readFile('data.json')
-    oldData.push({"id": oldData.length +1,"nama": joining, "Date": new Date() })
+    oldData.push({"id": oldData.length +1,"nama": joining, "Date": new Date(), "completed":"[]" })
     //console.log(oldData);
 
     fs.writeFile('data.json', JSON.stringify(oldData), (err) => {
