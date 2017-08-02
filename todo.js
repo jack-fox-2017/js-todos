@@ -5,6 +5,8 @@ class ToDo {
 	static command(arr) {
 		const file = './data.json'
 		let data = ModelToDo.getData(file)	
+		let content = command[1]
+		let taskId = command[1]
 
 		switch(arr[0]) {
 			case undefined:
@@ -27,7 +29,6 @@ class ToDo {
 				break;
 
 			case 'add':
-				let content = command[1]
 
 				if (content == undefined) {
 					console.log('please write a content');
@@ -47,7 +48,11 @@ class ToDo {
 				break;
 
 			case 'task':
-				//arr[1]
+				let taskFound = data.filter(item => {return item.id == taskId})
+				if (taskFound.length <= 0) 
+					console.log(`Cannot found todo with id ${taskId}`);
+				else
+					console.log(`${taskFound[0].id}. [${taskFound[0].completed ? 'x' : ' '}] ${taskFound[0].content}`);
 				break;
 			case 'delete':
 				//arr[1]
