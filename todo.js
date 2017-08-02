@@ -5,19 +5,34 @@
 const TodoModel = require('./model')
 const TodoView = require('./view')
 
+class Todo{
+
+  static help() {
+    TodoView.help()
+  }
+
+  static list() {
+    TodoView.list(TodoModel.read())
+  }
+
+  static add(newTask) {
+    TodoModel.add(newTask)
+  }
+
+}
 
 var manageCommand = (input) => {
   switch(input[0]) {
     case 'help':
-      TodoView.help()
+      Todo.help()
     break
 
     case 'list':
-      TodoView.list()
+      Todo.list()
     break
 
     case 'add':
-    TodoModel.add(input[1])
+    Todo.add(input[1])
     break
 
   }
