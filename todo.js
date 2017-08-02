@@ -44,7 +44,7 @@ class ToDo {
 				data.push(newToDo)
 				ModelToDo.save(file, data)
 
-				console.log(`Added ${content} to your TODO list...`);
+				console.log(`Added "${content}" to your TODO list...`);
 				break;
 
 			case 'task':
@@ -65,11 +65,14 @@ class ToDo {
 						afterDeleted[i].id = i + 1
 					}
 					ModelToDo.save(file, afterDeleted)
+					console.log(`Deleted "${deleteFound[0].content}" to your TODO list...`);
 				}
 				break;
 
 			case 'complete':
-				data.map(item => {})
+				for (let i = 0; i < data.length; i++) {
+					
+				}
 				break;
 
 			case 'uncomplete':
