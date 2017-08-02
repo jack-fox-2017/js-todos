@@ -50,15 +50,23 @@ class ToDo {
 			case 'task':
 				let taskFound = data.filter(item => {return item.id == taskId})
 				if (taskFound.length <= 0) 
-					console.log(`Cannot found todo with id ${taskId}`);
+					console.log(`Can't find todo with id ${taskId}`);
 				else
 					console.log(`${taskFound[0].id}. [${taskFound[0].completed ? 'x' : ' '}] ${taskFound[0].content}`);
 				break;
+
 			case 'delete':
-				//arr[1]
+				let deleteFound = data.filter(item => {return item.id == taskId})
+				if (deleteFound.length <= 0)
+				 	console.log(`Can't delete todo with id ${taskId}, not found`);
+				else {
+					let afterDeleted = data.filter(item => {return item.id != taskId}).map((item, index) => {return {id: index + 1,completed: item.completed,content: item.content}})
+					ModelToDo.save(file, afterDeleted)
+				}
 				break;
+
 			case 'complete':
-				//arr[1]
+				
 				break;
 			case 'uncomplete':
 				//arr[1]

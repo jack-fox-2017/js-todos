@@ -7,15 +7,10 @@
   {
     "id": 2,
     "completed": false,
-    "content": "Main node js"
-  },
-  {
-    "id": 3,
-    "completed": false,
     "content": "test"
   },
   {
-    "id": 4,
+    "id": 3,
     "completed": false,
     "content": "testaa"
   }
