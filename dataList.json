@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "command": "help"
+  },
+  {
+    "id": 2,
+    "command": "list"
+  },
+  {
+    "id": 3,
+    "command": "add <task_content>"
+  },
+  {
+    "id": 4,
+    "command": "task <task_content>"
+  },
+  {
+    "id": 5,
+    "command": "delete <task_content>"
+  },
+  {
+    "id": 6,
+    "command": "complete <task_content>"
+  },
+  {
+    "id": 7,
+    "command": "uncomplete <task_content>"
+  }
+]
