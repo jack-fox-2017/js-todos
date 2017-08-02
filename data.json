@@ -7,11 +7,6 @@
   {
     "id": 2,
     "completed": false,
-    "content": "test"
-  },
-  {
-    "id": 3,
-    "completed": false,
     "content": "testaa"
   }
 ]
