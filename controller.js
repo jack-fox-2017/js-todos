@@ -24,6 +24,9 @@ class Controller {
       case 'list:completed':
         this.model.sortComplete(param.splice(1))
         break;
+      case 'task':
+        this.model.find(param.splice(1))
+        break;
       case 'add':
         this.model.write(param.splice(1))
         break;

@@ -26,6 +26,14 @@ class View {
     }
   }
 
+  static find(param, num) {
+    for (var i = 0; i < param.length; i++) {
+      if (param[i].id == num) {
+        console.log(`${param[i].id}. ${param[i].task}`);
+      }
+    }
+  }
+
   static sortCreate(param) {
     for (var i = 0; i < param.length; i++) {
       if (param[i].status == true) {

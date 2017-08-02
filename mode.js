@@ -14,7 +14,9 @@ class Mode {
     var tmp = fs.readFileSync('data.json', 'utf8')
     var temp = JSON.parse(tmp);
     var date = new Date()
+    var tot = temp.length
     temp.push({
+      "id": tot + 1,
       "task": data.join(' '),
       "status": false,
       "createdAt": date.toUTCString(),
@@ -31,10 +33,20 @@ class Mode {
   }
 
   delete(param) {
+    var num = 1
     var reed = JSON.parse(fs.readFileSync('data.json', 'utf8'))
     console.log(`you've been deleted ${JSON.stringify(reed[param - 1].task)} from your To Do list`);
-    reed.splice(param - 1, 1)
+    reed.splice(param - 1, 1)   
+    for (var i = 0; i < reed.length; i++) {
+      reed[i].id = num++
+    }
     fs.writeFileSync('data.json', JSON.stringify(reed, null, 2))
+ 
+  }
+
+  find(param) {
+    var reed = JSON.parse(fs.readFileSync('data.json', 'utf8'))
+    View.find(reed, param)
   }
 
   mayday() {
