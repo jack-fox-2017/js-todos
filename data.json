@@ -15,7 +15,9 @@
     "content": "Buy cable extension",
     "complete": true,
     "completed_date": "2017-08-02T08:19:19.110Z",
-    "tag": [],
+    "tag": [
+      "work"
+    ],
     "created_date": "2017-08-02T08:02:04.398Z"
   },
   {
@@ -23,7 +25,9 @@
     "content": "Shut down the computer",
     "complete": false,
     "completed_date": null,
-    "tag": [],
+    "tag": [
+      "work"
+    ],
     "created_date": "2017-08-02T08:02:20.801Z"
   },
   {
@@ -31,7 +35,9 @@
     "content": "Shut the door",
     "complete": true,
     "completed_date": "2017-08-02T08:19:46.345Z",
-    "tag": [],
+    "tag": [
+      "home"
+    ],
     "created_date": "2017-08-02T08:19:36.266Z"
   }
 ]

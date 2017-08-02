@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-class ViewCookie {
+class View {
   static showList(data) {
     for(let i=0; i< data.length;i++) {
       var sign = 0;
@@ -106,10 +106,12 @@ class ViewCookie {
     }
   }
   static showFiltered(data, arr) {
+    var number =1;
     for(let i=0; i< data.length;i++) {
       for(let q=0; q< data[i].tag.length;q++) {
         if(data[i].tag[q] == arr) {
-        console.log(`${data[i].id}. ${data[i].content} [${data[i].tag}]`);
+        console.log(`${number}. (id:${data[i].id}) ${data[i].content} [${data[i].tag}]`);
+        number++;
         }
       }
     }
@@ -119,4 +121,4 @@ class ViewCookie {
   }
 }
 
-module.exports = ViewCookie;
+module.exports = View;

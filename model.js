@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-class ModelCookie {
+class Model {
   static readFile(file) {
     let data = fs.readFileSync(file,'utf-8') // type nya string
 
@@ -73,8 +73,6 @@ class ModelCookie {
     fs.writeFileSync('data.json',JSON.stringify(newList, null, 2));
   }
 
-  // ModelCookie.tag(n,arr);
-  // ViewCookie.showTagged(n,arr);
 
   static tag(n,arr) {
     let rawList = fs.readFileSync('./data.json', 'utf-8');
@@ -92,6 +90,4 @@ class ModelCookie {
 
 }
 
-module.exports = ModelCookie;
-
-// ModelCookie.readFile('./data.json')
+module.exports = Model;

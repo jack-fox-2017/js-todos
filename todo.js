@@ -1,138 +1,133 @@
 
-const ModelCookie = require('./model');
-const ViewCookie = require('./view');
-
-class Cookies {
+const Model = require('./model');
+const View = require('./view');
+//Cookies - Todo
+class Todo {
   static list() {
     // let data = fs.readFileSync('./data.json','utf-8') // type nya string
     // let data_json = JSON.parse(data);
     // console.log(typeof data);
-    let data = ModelCookie.readFile('./data.json');
-    ViewCookie.showList(data);
-    // for(let i=0; i< data_json.length;i++) {
-    //   console.log(`data ke ${i+1}: ${data_json[i].nama} `);
-    // }
+    let data = Model.readFile('./data.json');
+    View.showList(data);
   }
   static find(n) {
-    let data = ModelCookie.readFile('./data.json');
-    ViewCookie.showFind(data,n);
+    let data = Model.readFile('./data.json');
+    View.showFind(data,n);
   }
 
   static add(str) {
-    let data = ModelCookie.readFile('./data.json');
-    ModelCookie.add(str);
-    ViewCookie.showAdded(str);
+    let data = Model.readFile('./data.json');
+    Model.add(str);
+    View.showAdded(str);
   }
 
   static completed(n){
-    ModelCookie.completed(n);
+    Model.completed(n);
   }
 
   static uncompleted(n){
-    ModelCookie.uncompleted(n);
+    Model.uncompleted(n);
   }
 
   static deleted(n) {
-    let data = ModelCookie.readFile('./data.json');
-    ViewCookie.showDeleted(data, n);
-    ModelCookie.delete(n);
+    let data = Model.readFile('./data.json');
+    View.showDeleted(data, n);
+    Model.delete(n);
   }
 
   static sortCreated(way) {
-    let data = ModelCookie.readFile('./data.json');
+    let data = Model.readFile('./data.json');
     if (way == null || way == "asc") {
       way = "asc";
-      ViewCookie.showListCreated(data, way);
+      View.showListCreated(data, way);
     } else {
       way = "desc";
-      ViewCookie.showListCreated(data, way);
+      View.showListCreated(data, way);
     }
   }
 
   static sortUncompleted(way) {
-    let data = ModelCookie.readFile('./data.json');
+    let data = Model.readFile('./data.json');
     if (way == null || way == "asc") {
       way = "asc";
-      ViewCookie.showListUncompleted(data, way);
+      View.showListUncompleted(data, way);
     } else {
       way = "desc";
-      ViewCookie.showListUncompleted(data, way);
+      View.showListUncompleted(data, way);
     }
   }
 
   static sortCompleted(way) {
-    let data = ModelCookie.readFile('./data.json');
+    let data = Model.readFile('./data.json');
     if (way == null || way == "asc") {
       way = "asc";
-      ViewCookie.showListCompleted(data, way);
+      View.showListCompleted(data, way);
     } else {
       way = "desc";
-      ViewCookie.showListCompleted(data, way);
+      View.showListCompleted(data, way);
     }
   }
   // Cookies.tag(command[1],arr)
   static tag(n,arr) {
-    ModelCookie.tag(n,arr);
-    let data = ModelCookie.readFile('./data.json');
-    ViewCookie.showTagged(data, n, arr);
+    Model.tag(n,arr);
+    let data = Model.readFile('./data.json');
+    View.showTagged(data, n, arr);
   }
   static filter(arr) {
-    let data = ModelCookie.readFile('./data.json');
-    ViewCookie.showFiltered(data, arr);
+    let data = Model.readFile('./data.json');
+    View.showFiltered(data, arr);
   }
 }
 // pake switch case bukan looping cuma skali kyk if
 function manageCommand(command) {
-  // command[0]
-  // let rawList = ModelCookie.readFile('./data.json');
+
   switch(command[0]) {
     case "help": // kalo "node index.js help"
-    ViewCookie.showHelp();
+    View.showHelp();
     break;
     case "list":
-    Cookies.list()
+    Todo.list()
     break;
     case "add":
-    Cookies.add(command[1]);
+    Todo.add(command[1]);
     break;
     case "task":
-    Cookies.find(command[1]);
+    Todo.find(command[1]);
     break;
     case "delete":
-    Cookies.deleted(command[1]);
+    Todo.deleted(command[1]);
     break;
     case "complete":
-    Cookies.completed(command[1])
+    Todo.completed(command[1])
     break;
     case "uncomplete":
-    Cookies.uncompleted(command[1])
+    Todo.uncompleted(command[1])
     break;
     case "list:created":
-    Cookies.sortCreated(command[1])
+    Todo.sortCreated(command[1])
     break;
     case "list:outstanding":
-    Cookies.sortUncompleted(command[1])
+    Todo.sortUncompleted(command[1])
     break;
     case "list:completed":
-    Cookies.sortCompleted(command[1])
+    Todo.sortCompleted(command[1])
     break;
     case "tag":
     let arr=[];
     for (let i=2; i<command.length; i++) {
       arr.push(command[i]);
     }
-    Cookies.tag(command[1],arr)
+    Todo.tag(command[1],arr)
     break;
     default:
     var newCommand = command[0].split(':');
     switch(newCommand[0]) {
       case "filter":
-      Cookies.filter(newCommand[1])
+      Todo.filter(newCommand[1])
       break;
       default:
-      ViewCookie.showHelp();
+      View.showHelp();
     }
-    // ViewCookie.showHelp();
   }
 }
 
