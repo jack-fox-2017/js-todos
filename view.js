@@ -14,7 +14,18 @@ class View {
   static showTag(data){
     console.log(data);
   }
-  
+
+  static showFilteTag(dataJSON){
+    for (var i = 0; i < dataJSON.length; i++) {
+      var mark = dataJSON[i][`status`] !== 0?'X':' '
+      var temp =[]
+      for (let j = 0; j < dataJSON[i][`tag`].length; j++) {
+        temp.push(dataJSON[i][`tag`][j]['_tag'])
+      }
+      console.log(`${dataJSON[i][`id`]}. [${mark}] ${dataJSON[i][`task`]} ${temp}`)
+    }
+  }
+
   static showListCommand(dataJSON){
     for (var i = 0; i < dataJSON.length; i++) {
       console.log(`node todo.js ${dataJSON[i][`command`]}`);

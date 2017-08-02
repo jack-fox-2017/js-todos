@@ -22,7 +22,6 @@ class Tag{
 function manageInput(inputCLI){
   // split jika terdapat :
   let input = inputCLI.map(function(x){return x.split(':')})
-  //console.log(input[0]);
   switch (input[0][0]) {
     case `help`: {
       let dataJSON = Model.readData('./dataList.json')
@@ -31,7 +30,6 @@ function manageInput(inputCLI){
 
     case `list`: {
       let data = Model.readData('./data.json')
-      //console.log(input.length);
       let property = ''
       let sort = ''
       if (input.length > 1) {
@@ -55,7 +53,6 @@ function manageInput(inputCLI){
       let data = Model.readData('./data.json')
       let today = new Date()
       let sentence = input[1][0].charAt(0).toUpperCase() + input[1][0].slice(1);
-      //console.log(data.length);
       let newTask = {
         id: data.length + 1,
         status: 0,
@@ -109,8 +106,18 @@ function manageInput(inputCLI){
     break;
 
     case `filter`:{
-
-    }
+      let data = Model.readData('./data.json')
+      console.log(input[0][1])
+      let temp = data.filter(function(x){if(x.tag!==undefined)
+        { for (var i = 0; i < x.tag.length; i++) {
+            if (x.tag[i][`_tag`][0] === input[0][1]) {
+              return true
+            }
+          }
+          }})
+      console.log(temp);
+      View.showFilteTag(temp)
+    }break;
 
     case `tag`: {
       let tag = input.splice(2)
@@ -134,9 +141,7 @@ function manageInput(inputCLI){
           return false
         }
       })
-      // write data
       Model.writeData('./data.json',temp)
-      // show log
       var word = `Tagged task "${task[0][`task`]}" with tags: ${tag.join(', ')}`
       View.showTag(word)
     }break;
