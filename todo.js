@@ -87,7 +87,7 @@ class ToDo{
     }
   }
   static json(data){
-    let strData = JSON.stringify(data).split('\t[').join('[\n\t').split(',').join(',\n\t').split('\r]').join('\n]');
+    let strData = JSON.stringify(data, null, 2);
     return strData;
   }
   static sortByDate(data, task){
