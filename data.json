@@ -4,14 +4,19 @@
     "status": true,
     "createdAt": "Wed, 02 Aug 2017 03:20:44 GMT",
     "completedAt": "Wed, 02 Aug 2017 03:25:23 GMT",
-    "tag": []
+    "tag": [
+      "team"
+    ]
   },
   {
     "task": "main",
     "status": true,
     "createdAt": "Wed, 02 Aug 2017 03:20:50 GMT",
     "completedAt": "Wed, 02 Aug 2017 03:21:05 GMT",
-    "tag": []
+    "tag": [
+      "tama",
+      "team"
+    ]
   },
   {
     "task": "tidur",

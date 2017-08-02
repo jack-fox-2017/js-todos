@@ -1,10 +1,12 @@
 var fs = require('fs');
+const {
+  View
+} = require('./view.js')
 
 class Mode {
   constructor() {
     this.data = []
   }
-
 
 
   write(data) {
@@ -25,14 +27,7 @@ class Mode {
 
   read() {
     var reed = JSON.parse(fs.readFileSync('data.json', 'utf8'))
-    for (var i = 0; i < reed.length; i++) {
-      if (reed[i].status == true) {
-        console.log(`${i+1}. [X] ${reed[i].task}`)
-      }
-      else {
-        console.log(`${i+1}. [ ] ${reed[i].task}`)
-      }
-    }
+    View.list(reed)
   }
 
   delete(param) {
@@ -67,19 +62,11 @@ class Mode {
     if (param == 'asc' || param == null) {
       let asc = reed.sort((a, b) => new Date(b.createdAt) < new Date(a.createdAt))
       fs.writeFileSync('data.json', JSON.stringify(asc, null, 2))
-    }
-    else if (param == 'desc') {
+    } else if (param == 'desc') {
       let desc = reed.sort((a, b) => new Date(b.createdAt) > new Date(a.createdAt))
       fs.writeFileSync('data.json', JSON.stringify(desc, null, 2))
     }
-    for (var i = 0; i < reed.length; i++) {
-      if (reed[i].status == true) {
-        console.log(`${i+1}. [X] ${reed[i].task}`);
-      }
-      else {
-        console.log(`${i+1}. [ ] ${reed[i].task}`);
-      }
-    }
+    View.sortCreate(reed)
   }
 
   sortComplete(param) {
@@ -87,16 +74,11 @@ class Mode {
     if (param == 'asc' || param == null) {
       let ascc = reed.sort((a, b) => new Date(b.completedAt) < new Date(a.completedAt))
       fs.writeFileSync('data.json', JSON.stringify(ascc, null, 2))
-    }
-    else if (param == 'desc') {
+    } else if (param == 'desc') {
       let descc = reed.sort((a, b) => new Date(b.completedAt) > new Date(a.completedAt))
       fs.writeFileSync('data.json', JSON.stringify(descc, null, 2))
     }
-    for (var i = 0; i < reed.length; i++) {
-      if (reed[i].status) {
-        console.log(`${i+1}. [X] ${reed[i].task}`);
-      }
-    }
+    View.sortCompleted(reed)
   }
 
   setTag(data) {
@@ -106,8 +88,7 @@ class Mode {
     for (var i = 0; i < tag.length; i++) {
       if (reed[num - 1].tag.includes(tag.join()) === false) {
         reed[num - 1].tag.push(tag.join())
-      }
-      else {
+      } else {
         console.log(`${reed[num-1].task} is already tagged with ${tag}`);
       }
     }
@@ -116,23 +97,15 @@ class Mode {
 
   filter(data) {
     var reed = JSON.parse(fs.readFileSync('data.json', 'utf8'))
-    for (var i = 0; i < reed.length; i++) {
-      if (reed[i].tag.includes(data.join())) {
-        if (reed[i].status == true) {
-          console.log(`${i+1}. [X] ${reed[i].task} [${reed[i].tag.join(', ')}]`)
-        }
-        else {
-          console.log(`${i+1}. [ ] ${reed[i].task} [${reed[i].tag.join(', ')}]`)
-        }
-      }
-    }
-    // reed.forEach(tags => {
-    // if (tags.tag.includes(data) == true) {
-    //   console.log('test');
-    // }
-    // })
+    View.filter(reed, data)
   }
+  // reed.forEach(tags => {
+  // if (tags.tag.includes(data) == true) {
+  //   console.log('test');
+  // }
+  // })
 }
+
 
 
 module.exports = {
