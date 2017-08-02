@@ -1,5 +1,10 @@
 [
-	{"task":"Bikin aplikasi"},
-	{"task":"Main Node.js"},
-	{"task":"Tambah fitur complete dan uncomplete"}
+	{"task":"Bikin aplikasi",
+	"isDone":true},
+	{"task":"Main Node.js",
+	"isDone":false},
+	{"task":"Tambah fitur complete dan uncomplete",
+	"isDone":true},
+	{"task":"safhahfa",
+	"isDone":false}
 ]

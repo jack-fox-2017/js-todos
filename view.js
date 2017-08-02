@@ -10,19 +10,18 @@ class ViewToDo{
   }
   static list(data){
     for(let i=0; i<data.length; i++){
-      console.log(i+1+'.'+' '+data[i].task);
+      let xmark = ' ';
+      if(data[i].isDone){
+        xmark='x';
+      }
+      console.log(i+1+'.'+' ['+xmark+'] '+data[i].task);
     }
-    // dataStr.push('aa');
-    // console.log(dataStr);
   }
   static add(task){
     console.log('Added "'+task+'" to your TODO list...');
   }
-  static find(data){
-    console.log(data);
-  }
-  static rm(rmTask){
-    console.log('Removed '+rmTask+' to your TODO list...');
+  static info(strInfo){
+    console.log(strInfo);
   }
 }
 
