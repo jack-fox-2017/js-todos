@@ -85,6 +85,9 @@ function manageCommand(command) {
     case "help": // kalo "node index.js help"
     View.showHelp();
     break;
+    case undefined: // kalo "node index.js help"
+    View.showHelp();
+    break;
     case "list":
     Todo.list()
     break;

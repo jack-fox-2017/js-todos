@@ -117,7 +117,7 @@ class View {
     }
   }
   static showHelp() {
-    console.log("$node todo.js \n node todo.js help \n node todo.js list \n node todo.js add <task_content> \n node todo.js task <task_id> \n node todo.js delete <task_id> \n node todo.js complete <task_id> \n node todo.js uncomplete <task_id>" );
+    console.log("$node todo.js \n node todo.js help \n node todo.js list \n node todo.js add <task_content> \n node todo.js task <task_id> \n node todo.js delete <task_id> \n node todo.js complete <task_id> \n node todo.js uncomplete <task_id> \n node todo.js list:created asc | desc  \n node todo.js list:outstanding asc | desc  \n node todo.js list:completed asc | desc  \n node todo.js tag <tag_name>  \n node todo.js filter:<tag_name>" );
   }
 }
 
