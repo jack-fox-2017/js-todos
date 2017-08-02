@@ -19,6 +19,22 @@ class Todo{
     TodoModel.add(newTask)
   }
 
+  static find(id) {
+    TodoView.find(TodoModel.find(id))
+  }
+
+  static delete(id) {
+    TodoModel.delete(id)
+  }
+
+  static complete(id) {
+    TodoModel.complete(id)
+  }
+
+  static uncomplete(id) {
+    TodoModel.uncomplete(id)
+  }
+
 }
 
 var manageCommand = (input) => {
@@ -34,6 +50,25 @@ var manageCommand = (input) => {
     case 'add':
     Todo.add(input[1])
     break
+
+    case 'find':
+    Todo.find(input[1])
+    break
+
+    case 'delete':
+    Todo.delete(input[1])
+    break
+
+    case 'complete':
+    Todo.complete(input[1])
+    break
+
+    case 'uncomplete':
+    Todo.uncomplete(input[1])
+    break
+
+    default:
+    Todo.help()
 
   }
 }

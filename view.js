@@ -9,10 +9,21 @@ class TodoView {
   }
 
   static list(data) {
-    console.log('Task List: ');
+    console.log('TODO List: ');
     // console.log(data);
     for (let i=0; i<data.length; i++) {
-      console.log(data[i].id +'. '+ data[i].task);
+      if (data[i].isComplete == true) {
+        console.log(`${data[i].id}. [x] ${data[i].task}`);
+      }
+      else {
+        console.log(`${data[i].id}. [ ] ${data[i].task}`);
+      }
+    }
+  }
+
+  static find(data) {
+    for (let i=0; i<data.length; i++) {
+      console.log(`${data[i].id}. ${data[i].task}`);
     }
   }
 
