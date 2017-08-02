@@ -1,1 +1,37 @@
-[]
+[
+  {
+    "task": "Belajar",
+    "complete": false,
+    "time_created": "2017-07-09T08:23:17.401Z",
+    "time_completed": false,
+    "tag": []
+  },
+  {
+    "task": "Mengerjakan todo list",
+    "complete": false,
+    "time_created": "2017-07-09T09:41:16.236Z",
+    "time_completed": "2017-07-09T09:50:14.823Z",
+    "tag": []
+  },
+  {
+    "task": "belajar class",
+    "complete": false,
+    "time_created": "2017-08-02T15:32:29.526Z",
+    "time_completed": false,
+    "tag": []
+  },
+  {
+    "task": "belajar array",
+    "complete": false,
+    "time_created": "2017-08-02T15:50:19.562Z",
+    "time_completed": false,
+    "tag": []
+  },
+  {
+    "task": "belajar object",
+    "complete": false,
+    "time_created": "2017-08-02T16:22:41.426Z",
+    "time_completed": false,
+    "tag": []
+  }
+]
