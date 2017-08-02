@@ -11,6 +11,7 @@ class ViewToDo{
     \r$ node todo.js tag <tag_name><tag_name2>...<tag_name_N>\n\
     \r$ node todo.js complete <task_id>\n\
     \r$ node todo.js uncomplete <task_id>\
+    \r$ node todo.js tag:<tag_name>\
     ');
   }
   static list(data){
@@ -19,7 +20,11 @@ class ViewToDo{
       if(data[i].isDone){
         xmark='x';
       }
-      console.log(i+1+'.'+' ['+xmark+'] '+data[i].task);
+      let tag=[];
+      for(let j=0; j<data[i].tag.length; j++){
+        tag.push(data[i].tag[j].name);
+      }
+      console.log(i+1+'.'+' ['+xmark+'] '+data[i].task+' ['+tag.join(', ')+']');
     }
   }
   static add(task){

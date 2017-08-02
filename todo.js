@@ -7,6 +7,8 @@ class ToDo{
     let data = ModelToDo.getData(file);
     let task = com.slice(1).join(' ');
     let info = 'Task not found!';
+    let filter = com[0].split(':');
+    //console.log(filter[1]);
     switch(com[0]){
       case 'help':
         ViewToDo.help();
@@ -18,16 +20,16 @@ class ToDo{
         this.sortByDate(data, task);
         break;
       case 'list:completed':
-        //console.log(data.sort(function(a){return a.splice(a.isDone)}));
-        let complete = this.sortByComplete(data);
+        let complete = this.sortByComplete(data,true);
         this.sortByDate(complete, task);
         break;
       case 'list:uncomplete':
-        let uncomplete = this.sortByUncomplete(data);
+        let uncomplete = this.sortByComplete(data,false);
         this.sortByDate(uncomplete, task);
         break;
       case 'add':
-        data.push({task:task,isDone:false,date:new Date(),tag:[]});
+        let tag=[];
+        data.push({task:task,isDone:false,date:new Date(),tag:tag});
         let jsonAdd = this.json(data);
         ModelToDo.writeData(file, jsonAdd);
         ViewToDo.add(task);
@@ -65,6 +67,21 @@ class ToDo{
         }else{
           ViewToDo.info(info);}
         break;
+      case 'tag':
+        let arrTag = task.split(' ');
+        for(let i=1; i<arrTag.length; i++){
+          data[arrTag[0]-1].tag.push(new Tag(arrTag[i]));
+        }
+        let tagData = this.json(data);
+        ModelToDo.writeData(file, tagData);
+        arrTag.splice(0,1);
+        let tagInfo = 'Tagged task '+JSON.stringify(data[parseInt(task)-1].task)+' with tags: '+arrTag.join(', ');
+        ViewToDo.info(tagInfo);
+        break;
+      case filter[0]+':'+filter[1]:
+        let filterData = this.filter(data, filter[1]);
+        ViewToDo.list(filterData);
+        break;
       default:
         ViewToDo.help();
     }
@@ -85,23 +102,31 @@ class ToDo{
       ViewToDo.info('Use command asc / desc');
     }
   }
-  static sortByComplete(data){
+  static sortByComplete(data, bool){
     let complete = [];
     for(let i=0; i<data.length; i++){
-        if(data[i].isDone){
-          complete.push(data[i]);
-        }
+      if(data[i].isDone == bool){
+        complete.push(data[i]);
+      }
     }
     return complete;
   }
-  static sortByUncomplete(data){
-    let uncomplete = [];
+  static filter(data, tag){
+    let tags = [];
     for(let i=0; i<data.length; i++){
-        if(!data[i].isDone){
-          uncomplete.push(data[i]);
+      for(let j=0; j<data[i].tag.length; j++){
+        if(data[i].tag[j].name == tag){
+          tags.push(data[i]);
         }
+      }
     }
-    return uncomplete;
+    return tags;
+  }
+}
+
+class Tag{
+  constructor(name){
+    this.name = name;
   }
 }
 
