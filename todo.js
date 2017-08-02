@@ -6,7 +6,6 @@ class ToDo{
     let file = 'data.json';
     let data = ModelToDo.getData(file);
     let task = com.slice(1).join(' ');
-    //console.log(typeof task);
     switch(com[0]){
       case 'help':
         ViewToDo.help();
@@ -16,13 +15,11 @@ class ToDo{
         break;
       case 'add':
         data.push({task:task});
-        let strData = JSON.stringify(data).split('[').join('[\n\t').split(',').join(',\n\t').split(']').join('\n]');
-        //console.log(arrData)
-        ModelToDo.writeData(file, strData);
+        let jsonAdd = this.json(data);
+        ModelToDo.writeData(file, jsonAdd);
         ViewToDo.add(task);
         break;
       case 'task':
-        //console.log(task);
         let dt = 'Task not found!';
         if(task-1 < data.length){
           dt = task+'. '+JSON.stringify(data[parseInt(task)-1].task);
@@ -30,7 +27,10 @@ class ToDo{
         ViewToDo.find(dt);
         break;
       case 'delete':
-
+        let rmTask = data.splice(task-1,1);
+        let jsonRm = this.json(data);
+        ModelToDo.writeData(file, jsonRm);
+        ViewToDo.rm(JSON.stringify(rmTask[0].task));
         break;
       case 'complete':
         break;
@@ -39,6 +39,10 @@ class ToDo{
       default:
         ViewToDo.help();
     }
+  }
+  static json(data){
+    let strData = JSON.stringify(data).split('[').join('[\n\t').split(',').join(',\n\t').split(']').join('\n]');
+    return strData;
   }
 }
 

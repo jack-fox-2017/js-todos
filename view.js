@@ -21,6 +21,9 @@ class ViewToDo{
   static find(data){
     console.log(data);
   }
+  static rm(rmTask){
+    console.log('Removed '+rmTask+' to your TODO list...');
+  }
 }
 
 module.exports = ViewToDo;
