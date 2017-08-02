@@ -46,7 +46,13 @@ class Controller{
         return View.sortCreated(dataModel.sortCreated(), command[1])
         break;
       case 'list:complete':
-        return View.sortCreated(dataModel.sortCompleted(), command[1])
+        return View.sortCompleted(dataModel.sortCreated(), command[1])
+        break;
+      case 'list:uncomplete':
+        return View.sortUncomplete(dataModel.sortCreated(), command[1])
+        break;
+      case 'findbyTag':
+        return View.findbyTag(dataModel.sortCreated(), command[1])
         break;
       default:
         return View.indeks()
