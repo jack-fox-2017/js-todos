@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "id": 1,
+    "completed": false,
+    "content": "Bikin Aplikasi"
+  },
+  {
+    "id": 2,
+    "completed": false,
+    "content": "Main node js"
+  },
+  {
+    "id": 3,
+    "completed": false,
+    "content": "test"
+  },
+  {
+    "id": 4,
+    "completed": false,
+    "content": "testaa"
+  }
+]

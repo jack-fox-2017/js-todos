@@ -1,5 +1,11 @@
+const ModelToDo = require('./model')
+const ViewToDo = require('./view')
+
 class ToDo {
 	static command(arr) {
+		const file = './data.json'
+		let data = ModelToDo.getData(file)	
+
 		switch(arr[0]) {
 			case undefined:
 			case 'help':
@@ -13,13 +19,33 @@ class ToDo {
 					'$ node todo.js complete <task_id>',
 					'$ node todo.js uncomplete <task_id>'
 				]
-				return result.join('\n')
+				console.log(result.join('\n'))
+				break;
+
 			case 'list':
-				
+				console.log(data.map(item => {return `${item.id}. [${item.completed ? 'x' : ' '}] ${item.content}`}).join('\n'));
 				break;
+
 			case 'add':
-				//arr[1] content
+				let content = command[1]
+
+				if (content == undefined) {
+					console.log('please write a content');
+					break;
+				}
+
+				let newToDo = {
+					id: data.length + 1,
+					completed: false,
+					content: content
+				}
+
+				data.push(newToDo)
+				ModelToDo.save(file, data)
+
+				console.log(`Added ${content} to your TODO list...`);
 				break;
+
 			case 'task':
 				//arr[1]
 				break;
@@ -43,4 +69,4 @@ class ToDo {
 
 const command = process.argv.slice(2)
 // console.log(command);
-console.log(ToDo.command(command));
+ToDo.command(command);
