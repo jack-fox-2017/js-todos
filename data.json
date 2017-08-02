@@ -1,1 +1,43 @@
-[]
+[
+  {
+    "id": 1,
+    "content": "Bikin pr weekend ini",
+    "complete": false,
+    "completed_date": null,
+    "tag": [
+      "school",
+      "work"
+    ],
+    "created_date": "2017-08-02T08:01:27.028Z"
+  },
+  {
+    "id": 2,
+    "content": "Buy cable extension",
+    "complete": true,
+    "completed_date": "2017-08-02T08:19:19.110Z",
+    "tag": [
+      "work"
+    ],
+    "created_date": "2017-08-02T08:02:04.398Z"
+  },
+  {
+    "id": 3,
+    "content": "Shut down the computer",
+    "complete": false,
+    "completed_date": null,
+    "tag": [
+      "work"
+    ],
+    "created_date": "2017-08-02T08:02:20.801Z"
+  },
+  {
+    "id": 4,
+    "content": "Shut the door",
+    "complete": true,
+    "completed_date": "2017-08-02T08:19:46.345Z",
+    "tag": [
+      "home"
+    ],
+    "created_date": "2017-08-02T08:19:36.266Z"
+  }
+]
