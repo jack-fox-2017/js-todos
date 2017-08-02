@@ -94,6 +94,7 @@ class View {
   constructor() {
   }
 
+
   add(content){
     // console.log(`${content.id}`);
     console.log(content);
