@@ -52,7 +52,7 @@ static Call(input){
       break;
       case "list:created":
       // return View.list(Model.list_created())
-      return View.list(Model.list_created())
+      return View.list(Model.list_createdASC())
       break;
       default:
         return'node.todo.js help';
