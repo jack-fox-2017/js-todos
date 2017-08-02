@@ -36,7 +36,7 @@ class Controller {
   deleteAllDataFromFile() {
     let deleteAllData = new Model();
     deleteAllData.deleteAllDataFromFile();
-    View.deleteAllDataFromFile(`Deleted All Data in to do List. Empty List`);
+    View.successDeleteAllData(`Deleted All Data in to do List. Empty List`);
   }
 
   getData() {
@@ -45,12 +45,100 @@ class Controller {
     View.showData(data);
   }
 
+  getDataDetail(task_id) {
+    let getDataTask = new Model();
+    let dataTask = getDataTask.dataFileDetail(task_id);
+    View.showDataTask(dataTask,task_id);
+  }
+
+  tagTask(specific) {
+    let specificId = parseInt(specific[0]);
+    if (!Number.isInteger(specificId)) {
+      Controller.falseInput();
+      return false;
+    }
+    specificId -= 1;
+    let tag = specific.split(' ').splice(1);
+
+    let tagging = new Model();
+    tagging.dataFile();
+    tagging.tagData(specificId, tag);
+    tagging.saveToFile();
+  }
+
+  sortTasksByCreationTime(task) {
+    let sortCreate = new Model();
+    sortCreate.dataFile();
+    sortCreate.sortDataByCreationTime(task);
+    sortCreate.saveToFile();
+
+    View.showSortedByCreationTime(sortCreate.data);
+  }
+
+  sortTasksByCompletedTime(task) {
+    let sortCompleted = new Model();
+    sortCompleted.dataFile();
+    sortCompleted.sortDataByCompletedTime(task);
+    sortCompleted.saveToFile();
+
+    View.showSortedByCompletedTime(sortCompleted.data);
+  }
+
+  complete(task_id) {
+    task_id = parseInt(task_id);
+    if (!Number.isInteger(task_id)) {
+      Controller.falseInput();
+      return false;
+    }
+    task_id -= 1;
+
+    let completeTaskId = new Model();
+    completeTaskId.dataFile();
+    let complete = completeTaskId.changeToComplete(task_id);
+
+    if (complete) {
+      completeTaskId.saveToFile();
+      View.successCompleteTask(`Nomor ${task_id+1} Done`);
+    }
+  }
+
+  uncomplete(task_id) {
+    task_id = parseInt(task_id);
+    if (!Number.isInteger(task_id)) {
+      Controller.falseInput();
+      return false;
+    }
+    task_id -= 1;
+
+    let uncompleteTaskId = new Model();
+    uncompleteTaskId.dataFile();
+    let isCanUncomplete = uncompleteTaskId.changeToUncomplete(task_id);
+
+    if (isCanUncomplete) {
+      uncompleteTaskId.saveToFile();
+      View.successUncompleteTask(`Nomor ${task_id+1} Change To Uncomplete`);
+    }
+  }
+
+  filterTask(specific) {
+    let filter = new Model();
+    filter.dataFile();
+    let filtered = filter.data;
+    View.showFilterList(filter, specific);
+  }
+
+  static falseInput() {
+    View.showFalseInput("Wrong Typing");
+  }
+
   static help() {
     View.showHelp('|||||||||||||||||||||||||||||||  HELP  |||||||||||||||||||||||||||||||');
     View.showHelp('APLIKASI TO DO LIST');
     View.showHelp('1. Command (help) untuk help cara menggunakan aplikasi TO DO');
     View.showHelp('2. Command add untuk menambahkan task')
     View.showHelp('3. Command delete No Task untuk mengahapus task di TO DO List')
+    View.showHelp('4. Command list untuk melihat semua list')
+    View.showHelp('5. Command list:complete untuk melihat task yang sudah selsai')
   }
 }
 
