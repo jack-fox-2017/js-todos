@@ -1,1 +1,30 @@
-[]
+[
+  {
+    "task": "makan",
+    "status": true,
+    "createdAt": "Wed, 02 Aug 2017 03:20:44 GMT",
+    "completedAt": "Wed, 02 Aug 2017 03:25:23 GMT",
+    "tag": []
+  },
+  {
+    "task": "main",
+    "status": true,
+    "createdAt": "Wed, 02 Aug 2017 03:20:50 GMT",
+    "completedAt": "Wed, 02 Aug 2017 03:21:05 GMT",
+    "tag": []
+  },
+  {
+    "task": "tidur",
+    "status": false,
+    "createdAt": "Wed, 02 Aug 2017 03:20:53 GMT",
+    "completedAt": false,
+    "tag": []
+  },
+  {
+    "task": "nyanyi",
+    "status": false,
+    "createdAt": "Wed, 02 Aug 2017 03:25:17 GMT",
+    "completedAt": false,
+    "tag": []
+  }
+]
