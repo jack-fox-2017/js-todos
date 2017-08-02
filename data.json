@@ -1,1 +1,57 @@
-[]
+[
+  {
+    "id": 1,
+    "task": "Nongkrong",
+    "complete": true,
+    "completed_date": "2017-08-02T13:43:56.287Z",
+    "tag": [],
+    "created_date": "2017-08-02T13:07:52.532Z"
+  },
+  {
+    "id": 2,
+    "task": "Baca Dokumentasi",
+    "complete": true,
+    "completed_date": "2017-08-02T13:44:04.686Z",
+    "tag": [
+      "fun",
+      "work"
+    ],
+    "created_date": "2017-08-02T13:11:06.308Z"
+  },
+  {
+    "id": 3,
+    "task": "Bikin Aplikasi",
+    "complete": true,
+    "completed_date": "2017-08-02T14:11:47.375Z",
+    "tag": [
+      "fun",
+      "work",
+      "travelling"
+    ],
+    "created_date": "2017-08-02T13:50:17.830Z"
+  },
+  {
+    "id": 4,
+    "task": "Mainin Node JS",
+    "complete": false,
+    "completed_date": "2017-08-02T14:12:08.883Z",
+    "tag": [],
+    "created_date": "2017-08-02T13:50:33.095Z"
+  },
+  {
+    "id": 5,
+    "task": "Mainin Express JS",
+    "complete": true,
+    "completed_date": "2017-08-02T13:50:54.815Z",
+    "tag": [],
+    "created_date": "2017-08-02T13:50:41.438Z"
+  },
+  {
+    "id": 6,
+    "task": "Bermain Logic",
+    "complete": false,
+    "completed_date": null,
+    "tag": [],
+    "created_date": "2017-08-02T16:48:48.746Z"
+  }
+]
