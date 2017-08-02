@@ -71,12 +71,22 @@ class ToDo {
 
 			case 'complete':
 				for (let i = 0; i < data.length; i++) {
-					
+					if (data[i].id == taskId) {
+						data[i].completed = true
+						ModelToDo.save(file, data)
+						break;
+					}
 				}
 				break;
 
 			case 'uncomplete':
-				//arr[1]
+				for (let i = 0; i < data.length; i++) {
+					if (data[i].id == taskId) {
+						data[i].completed = false
+						ModelToDo.save(file, data)
+						break;
+					}
+				}
 				break;
 			
 			default:
